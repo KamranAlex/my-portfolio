@@ -23,7 +23,7 @@
   left: 5px;
   width: 80%;
   height: 45%;
-  background: linear-gradient(to left, #3c9104, crimson);
+  background: linear-gradient(to left, crimson, #ce0379);
   border-radius: 50px;
   animation: bar 3s ease;
 }
@@ -70,9 +70,9 @@ abbr {
   line-height: 30px;
   position: absolute;
   top: 25px;
-  background: linear-gradient(to right, #58d604, crimson);
+  background: linear-gradient(to left, rgb(236, 20, 63), #ce0379);
   z-index: 1;
-  box-shadow: 0 5px 15px #3c9104, 0 2px 15px crimson;
+  box-shadow: 0 5px 15px crimson, 0 2px 15px #ce0379;
   animation: count 3s ease;
 }
 @keyframes count {

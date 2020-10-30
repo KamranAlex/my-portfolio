@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Contact.css";
 import emailjs from "emailjs-com";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,27 +14,26 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({});
-  const handleBlur = (e) => {
-    const newData = { ...formData };
-    newData[e.target.name] = e.target.value;
-    setFormData(newData);
-  };
-
   const handleSubmit = (e) => {
-    console.log(formData);
-    e.preventDefault();
-
     emailjs
       .sendForm(
-        "service_7fibyb8",
-        "template_q4ffnyc",
-        formData,
+        "service_l6z60tn",
+        "template_roged9v",
+        e.target,
         "user_vwv2gACW5zeoReEJrIBrX"
       )
-      .then((result) => {
-        console.log(result.text);
-      });
+      .then(
+        (result) => {
+          if (result) {
+            alert("Message sent Successfully..");
+          }
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+    e.target.reset();
+    e.preventDefault();
   };
   return (
     <section className='resume-section' id='contact'>
@@ -103,23 +102,21 @@ const Contact = () => {
               {/* //contact form */}
               <div className='col-md-6 column right'>
                 <div className='text text-primary'>Message me</div>
-                <form action='submit' onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit}>
                   <div className='fields'>
                     <div className='field name'>
                       <input
                         type='text'
-                        name='name'
+                        name='user_name'
                         placeholder='Name'
-                        onBlur={handleBlur}
                         required
                       />
                     </div>
                     <div className='field email'>
                       <input
                         type='email'
-                        name='email'
+                        name='user_email'
                         placeholder='Email'
-                        onBlur={handleBlur}
                         required
                       />
                     </div>
@@ -129,7 +126,6 @@ const Contact = () => {
                       type='text'
                       name='subject'
                       placeholder='Subject'
-                      onBlur={handleBlur}
                       required
                     />
                   </div>
@@ -139,7 +135,6 @@ const Contact = () => {
                       rows='10'
                       name='message'
                       placeholder='Message..'
-                      onBlur={handleBlur}
                       required
                     ></textarea>
                   </div>
