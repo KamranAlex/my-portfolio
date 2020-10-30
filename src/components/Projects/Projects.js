@@ -7,14 +7,14 @@ import TravelGuru from "../../assets/projects/travel-guru.png";
 
 const Projects = () => {
   return (
-    <section class='resume-section' id='projects'>
-      <div class='resume-section-content'>
-        <h2 class='mb-1'>projects</h2>
-        <div class='projects'>
-          <div class='all-projects'>
+    <section className='resume-section' id='projects'>
+      <div className='resume-section-content'>
+        <h2 className='mb-1'>projects</h2>
+        <div className='projects'>
+          <div className='all-projects'>
             {/* Project-1 */}
-            <div class='project-item'>
-              <div class='project-info'>
+            <div className='project-item'>
+              <div className='project-info'>
                 <h3>Creative Agency</h3>
                 <h4>Full-stack app to Order Creative Services</h4>
                 <div className='project-features'>
@@ -46,17 +46,17 @@ const Projects = () => {
                   </a>
                 </div>
               </div>
-              <div class='project-img'>
+              <div className='project-img'>
                 <img src={CreativeAgency} alt='img' />
               </div>
             </div>
 
             {/* Project-2 */}
-            <div class='project-item'>
-              <div class='project-img'>
+            <div className='project-item'>
+              <div className='project-img'>
                 <img src={DoctorsPortal} alt='img' />
               </div>
-              <div class='project-info'>
+              <div className='project-info'>
                 <h3>Doctors Portal</h3>
                 <h4>Full-stack website to Make and Manage Appoinments</h4>
                 <div className='project-features'>
@@ -91,8 +91,8 @@ const Projects = () => {
             </div>
 
             {/* Project-3 */}
-            <div class='project-item'>
-              <div class='project-info'>
+            <div className='project-item'>
+              <div className='project-info'>
                 <h3>Volunteer Network</h3>
                 <h4>
                   Encourage people to Participate in different social tasks
@@ -128,17 +128,17 @@ const Projects = () => {
                   </a>
                 </div>
               </div>
-              <div class='project-img'>
+              <div className='project-img'>
                 <img src={VolunteerNetwork} alt='img' />
               </div>
             </div>
 
             {/* Project-4 */}
-            <div class='project-item'>
-              <div class='project-img'>
+            <div className='project-item'>
+              <div className='project-img'>
                 <img src={TravelGuru} alt='img' />
               </div>
-              <div class='project-info'>
+              <div className='project-info'>
                 <h3>Travel Guru</h3>
                 <h4>React App to Book a Tour</h4>
                 <div className='project-features'>

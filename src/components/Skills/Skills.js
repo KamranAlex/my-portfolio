@@ -3,10 +3,10 @@ import "./Skills.css";
 
 const Skills = () => {
   return (
-    <section class='resume-section' id='skills'>
-      <div class='resume-section-content'>
-        <h2 class='mb-2'>Skills</h2>
-        <div class='subheading mb-3'>Programming Languages & Tools</div>
+    <section className='resume-section' id='skills'>
+      <div className='resume-section-content'>
+        <h2 className='mb-2'>Skills</h2>
+        <div className='subheading mb-3'>Programming Languages & Tools</div>
         <div className='wrap'>
           <div className='bar'>
             <h5 style={{ textTransform: "none" }}>

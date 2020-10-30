@@ -11,19 +11,19 @@ const Main = () => {
   return (
     <div>
       <Header />
-      <div class='container-fluid p-0'>
+      <div className='container-fluid p-0'>
         <About />
-        <hr class='m-0' />
+        <hr className='m-0' />
         <Skills />
-        <hr class='m-0' />
+        <hr className='m-0' />
         <Projects />
-        <hr class='m-0' />
+        <hr className='m-0' />
         <Blogs />
-        <hr class='m-0' />
+        <hr className='m-0' />
         <Educations />
-        <hr class='m-0' />
+        <hr className='m-0' />
         <Contact />
-        <hr class='m-0' />
+        <hr className='m-0' />
       </div>
     </div>
   );

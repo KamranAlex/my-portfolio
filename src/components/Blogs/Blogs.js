@@ -3,9 +3,9 @@ import CommingSoon from "../../assets/img/commingSoon.png";
 
 const Blogs = () => {
   return (
-    <section class='resume-section' id='blogs'>
-      <div class='resume-section-content'>
-        <h2 class='mb-0'>Blogs</h2>
+    <section className='resume-section' id='blogs'>
+      <div className='resume-section-content'>
+        <h2 className='mb-0'>Blogs</h2>
         <div className='container'>
           <img style={{ height: "580px" }} src={CommingSoon} alt='' />
         </div>

@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Contact.css";
+import emailjs from "emailjs-com";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEnvelope,
   faMapMarkerAlt,
   faPhone,
-  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
@@ -14,16 +14,38 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 const Contact = () => {
-  return (
-    <section class='resume-section' id='contact'>
-      <div class='resume-section-content'>
-        <h2 class='mb-3'>Contact</h2>
+  const [formData, setFormData] = useState({});
+  const handleBlur = (e) => {
+    const newData = { ...formData };
+    newData[e.target.name] = e.target.value;
+    setFormData(newData);
+  };
 
-        <div class='contact'>
-          <div class='max-width'>
-            <div class='row contact-content'>
-              <div class='col-md-6 column left'>
-                <div class='text text-primary'>Get in Touch</div>
+  const handleSubmit = (e) => {
+    console.log(formData);
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_7fibyb8",
+        "template_q4ffnyc",
+        formData,
+        "user_vwv2gACW5zeoReEJrIBrX"
+      )
+      .then((result) => {
+        console.log(result.text);
+      });
+  };
+  return (
+    <section className='resume-section' id='contact'>
+      <div className='resume-section-content'>
+        <h2 className='mb-3'>Contact</h2>
+
+        <div className='contact'>
+          <div className='max-width'>
+            <div className='row contact-content'>
+              <div className='col-md-6 column left'>
+                <div className='text text-primary'>Get in Touch</div>
                 <div className='social-icons mb-1'>
                   <a
                     className='social-icon icon-linkedin'
@@ -44,62 +66,84 @@ const Contact = () => {
                     <FontAwesomeIcon icon={faFacebook} />
                   </a>
                 </div>
-                <div class='icons'>
-                  <div class='row'>
+                <div className='icons'>
+                  <div className='row'>
                     <FontAwesomeIcon
                       icon={faMapMarkerAlt}
                       className='text-primary'
                     />
-                    <div class='info'>
-                      <div class='head text-primary'>Address</div>
-                      <div class='sub-title'>
+                    <div className='info'>
+                      <div className='head text-primary'>Address</div>
+                      <div className='sub-title'>
                         Surovi 51/B, Sylhet, Bangladesh.
                       </div>
                     </div>
                   </div>
-                  <div class='row'>
+                  <div className='row'>
                     <FontAwesomeIcon icon={faPhone} className='text-primary' />
-                    <div class='info'>
-                      <div class='head text-primary'>Phone</div>
-                      <div class='sub-title'>+880 1762943903</div>
+                    <div className='info'>
+                      <div className='head text-primary'>Phone</div>
+                      <div className='sub-title'>+880 1762943903</div>
                     </div>
                   </div>
-                  <div class='row'>
+                  <div className='row'>
                     <FontAwesomeIcon
                       icon={faEnvelope}
                       className='text-primary'
                     />
-                    <div class='info'>
-                      <div class='head text-primary'>Email</div>
-                      <div class='sub-title'>officialkamruzzaman@gmail.com</div>
+                    <div className='info'>
+                      <div className='head text-primary'>Email</div>
+                      <div className='sub-title'>
+                        officialkamruzzaman@gmail.com
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
               {/* //contact form */}
-              <div class='col-md-6 column right'>
-                <div class='text text-primary'>Message me</div>
-                <form action='#'>
-                  <div class='fields'>
-                    <div class='field name'>
-                      <input type='text' placeholder='Name' required />
+              <div className='col-md-6 column right'>
+                <div className='text text-primary'>Message me</div>
+                <form action='submit' onSubmit={handleSubmit}>
+                  <div className='fields'>
+                    <div className='field name'>
+                      <input
+                        type='text'
+                        name='name'
+                        placeholder='Name'
+                        onBlur={handleBlur}
+                        required
+                      />
                     </div>
-                    <div class='field email'>
-                      <input type='email' placeholder='Email' required />
+                    <div className='field email'>
+                      <input
+                        type='email'
+                        name='email'
+                        placeholder='Email'
+                        onBlur={handleBlur}
+                        required
+                      />
                     </div>
                   </div>
-                  <div class='field'>
-                    <input type='text' placeholder='Subject' required />
+                  <div className='field'>
+                    <input
+                      type='text'
+                      name='subject'
+                      placeholder='Subject'
+                      onBlur={handleBlur}
+                      required
+                    />
                   </div>
-                  <div class='field textarea'>
+                  <div className='field textarea'>
                     <textarea
                       cols='30'
                       rows='10'
+                      name='message'
                       placeholder='Message..'
+                      onBlur={handleBlur}
                       required
                     ></textarea>
                   </div>
-                  <div class='button'>
+                  <div className='button'>
                     <button type='submit'>Send message</button>
                   </div>
                 </form>
